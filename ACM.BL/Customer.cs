@@ -1,9 +1,18 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace ACM.BL
 {
     public class Customer
     {
+
+        public Customer() {}
+
+        public Customer(int customerId)
+        {
+            this.CustomerId = customerId;
+        }
+
         public int InstanceCount { get; set; }
         public string LastName { get; set; }
         public string FirstName { get; set; }
@@ -18,21 +27,13 @@ namespace ACM.BL
             
         }
 
+        /// <summary>
+        /// Validate this instance.
+        /// </summary>
+        /// <returns>The validate.</returns>
         public bool Validate()
         {
-            bool isValid = true;
-
-            if (string.IsNullOrWhiteSpace(LastName))
-            {
-                isValid = false;
-            }
-
-            if (string.IsNullOrWhiteSpace(EmailAddress))
-            {
-                isValid = false;
-            }
-
-            return isValid;
+            return !string.IsNullOrWhiteSpace(LastName) && !string.IsNullOrWhiteSpace(EmailAddress);
         }
     }
 }

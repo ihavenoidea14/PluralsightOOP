@@ -4,7 +4,7 @@ using ACM.BL;
 
 namespace ACM.BLTest
 {
-    public class UnitTest1
+    public class CustomerTest
     {
         [Fact]
         public void FullNameTestValid()
@@ -29,14 +29,23 @@ namespace ACM.BLTest
         [Fact]
         public void ValidationTest()
         {
-            Customer customer = new Customer();
+            // Arrange
+            Customer customer1 = new Customer();
+            var customer2 = new Customer();
 
-            customer.LastName = "Wade";
-            customer.EmailAddress = "";
+            customer1.LastName = "Wade";
+            customer1.EmailAddress = "jarid.wade@icloud.com";
 
-            bool valid = customer.Validate();
+            customer2.LastName = "Wade";
+            customer2.EmailAddress = "";
 
-            Assert.Equal(false, valid);
+            // Act
+            bool valid1 = customer1.Validate();
+            bool valid2 = customer2.Validate();
+
+            // Assert
+            Assert.Equal(true, valid1);
+            Assert.Equal(false, valid2);
         }
     }
 }
