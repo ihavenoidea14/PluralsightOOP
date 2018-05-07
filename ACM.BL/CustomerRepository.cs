@@ -6,6 +6,8 @@ namespace ACM.BL
     {
         public CustomerRepository() {}
 
+        private AddressRepository addressRepository { get; set; }
+
         /// <summary>
         /// Retrieve the specified Customer.
         /// </summary>
